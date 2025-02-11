@@ -58,4 +58,17 @@ class StudentRepositoryTest {
     public void deleteStudentByStudentId(){
         studentRepository.deleteById(7L);
     }
+
+    @Test
+    public void printGetStudentByEmailAddress(){
+        Student student=studentRepository.getStudentByEmailAddress("anant@gmail.com");
+        System.out.println(student);
+    }
+
+    @Test
+    public void printgetStudentFirstNameByEmailAddress(){
+        String firstName= studentRepository.getStudentFirstNameByEmailAddress("aditya@gmail.com");
+
+        System.out.println(firstName);
+    }
 }
