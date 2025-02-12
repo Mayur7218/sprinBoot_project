@@ -65,10 +65,52 @@ class StudentRepositoryTest {
         System.out.println(student);
     }
 
+    //JPQL
     @Test
     public void printgetStudentFirstNameByEmailAddress(){
-        String firstName= studentRepository.getStudentFirstNameByEmailAddress("aditya@gmail.com");
+        String firstName= studentRepository.getStudentFirstNameByEmailAddress("anant@gmail.com");
 
         System.out.println(firstName);
     }
+
+    @Test
+    public void printGetGuardianByStudentId(){
+        Guardian guardian=studentRepository.getGuardianByStudentId(1L);
+        System.out.println(guardian);
+    }
+
+    @Test
+    public void PrintGetStudentLastNameByEmailAddress(){
+        String lastname =studentRepository.getStudentLastNameByEmailAddress("anant@gmail.com");
+        System.out.println(lastname);
+    }
+
+    @Test
+    public void PrintGetGuardianNameByFirstName(){
+        String GuardianName= studentRepository.getGuardianNameByFirstName("Anant");
+        System.out.println(GuardianName);
+    }
+
+    @Test
+    public void updateFirstNameUsingEmailId(){
+        int updated=studentRepository.updateFirstNameUsingEmailId("Aditya","aditya@gmail.com");
+
+        if(updated>0){
+            System.out.println("First_Name is updated");
+        }else{
+            System.out.println("Error in Updating");
+        }
+    }
+
+    @Test
+    public void PrintupdateGuardianEmailAddressUsingFirstName(){
+        int updated= studentRepository.updateGuardianEmailAddressUsingFirstName("GuardianAdtiya@gmail.com","Aditya");
+        if(updated>0){
+            System.out.println("GuardianEmail is updated");
+        }else{
+            System.out.println("Error in Updating");
+        }
+    }
+
+
 }
